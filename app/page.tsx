@@ -11,7 +11,7 @@ export default function HomePage() {
   return (
     <>
       <Header />
-      <main>
+      <main className="bg-[#eae4f4]">
         <HeroSection />
         <FeaturedWorks />
         <AboutPreview />
