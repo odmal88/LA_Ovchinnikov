@@ -29,7 +29,8 @@ export default function BiographyPage() {
           </div>
 
           {/* Примечание */}
-          <div className="max-w-3xl mb-12 p-6 bg-section rounded-sm border border-soft">
+          <div className="max-w-3xl mb-12 p-6 bg-card rounded-sm border border-soft relative pl-8">
+            <span className="absolute left-0 top-0 h-full w-1 bg-brick" aria-hidden="true" />
             <p className="text-sm text-muted-foreground leading-relaxed">
               Биографические сведения уточняются на основе архивных материалов,
               документов и семейных воспоминаний. Если вы располагаете

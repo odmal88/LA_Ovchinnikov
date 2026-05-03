@@ -15,41 +15,41 @@
   --font-mono: 'Geist Mono', monospace;
   
   /* Основные фоны — тёплая музейная бумага */
-  --color-background: #F3EEE4;
-  --color-foreground: #2F2A25;
+  --color-background: #ECE0CC;
+  --color-foreground: #332820;
   
   /* Карточки */
-  --color-card: #F8F5EF;
-  --color-card-foreground: #2F2A25;
+  --color-card: #F7F0E4;
+  --color-card-foreground: #332820;
   
   /* Popover */
-  --color-popover: #F8F5EF;
-  --color-popover-foreground: #2F2A25;
+  --color-popover: #F7F0E4;
+  --color-popover-foreground: #332820;
   
   /* Primary — олива */
-  --color-primary: #6F7461;
+  --color-primary: #9E4127;
   --color-primary-foreground: #FFFFFF;
   
   /* Secondary — секционный фон */
-  --color-secondary: #E8E1D4;
-  --color-secondary-foreground: #2F2A25;
+  --color-secondary: #DED0BA;
+  --color-secondary-foreground: #332820;
   
   /* Muted */
-  --color-muted: #E8E1D4;
-  --color-muted-foreground: #5E574F;
+  --color-muted: #DED0BA;
+  --color-muted-foreground: #675E52;
   
   /* Accent */
-  --color-accent: #E8E1D4;
-  --color-accent-foreground: #2F2A25;
+  --color-accent: #DED0BA;
+  --color-accent-foreground: #332820;
   
   /* Destructive */
   --color-destructive: #B54B4B;
   --color-destructive-foreground: #FFFFFF;
   
   /* Border & Input — мягкая линия */
-  --color-border: #CFC6B8;
-  --color-input: #CFC6B8;
-  --color-ring: #6F7461;
+  --color-border: #B8A995;
+  --color-input: #B8A995;
+  --color-ring: #9E4127;
   
   /* Радиусы */
   --radius-sm: 0.25rem;
@@ -58,12 +58,14 @@
   --radius-xl: 0.75rem;
   
   /* Музейные акцентные цвета */
-  --color-olive: #6F7461;
-  --color-ocher: #8A7156;
-  --color-ash-blue: #7A848A;
-  --color-section: #E8E1D4;
-  --color-soft: #CFC6B8;
-  --color-museum-card: #F8F5EF;
+  --color-olive: #566246;
+  --color-ocher: #B2702E;
+  --color-ash-blue: #4F6E78;
+  --color-section: #DED0BA;
+  --color-soft: #B8A995;
+  --color-museum-card: #F7F0E4;
+  --color-brick: #9E4127;
+  --color-ink: #2E3934;
 }
 
 @layer base {

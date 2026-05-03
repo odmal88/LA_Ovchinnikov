@@ -18,8 +18,8 @@ export function WorkCard({ work, className, priority = false }: WorkCardProps) {
     <Link
       href={`/works/${work.slug}`}
       className={cn(
-        "group block bg-card rounded-sm border border-soft overflow-hidden",
-        "hover:shadow-md transition-all duration-300",
+        "group block bg-card rounded-sm border-2 border-soft overflow-hidden",
+        "hover:border-olive hover:shadow-lg transition-all duration-300",
         className
       )}
     >
