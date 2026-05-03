@@ -3,44 +3,27 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/*
- * Цифровой архив Льва Авксентьевича Овчинникова
- * Палитра выведена из живописи художника:
- * лавандовый снег и тени, золото заката, охра городского мотива.
- * Типографика проекта — только антиква.
- */
-
 @theme inline {
-  /* Шрифты: без гротеска во всех элементах интерфейса */
   --font-sans: Georgia, 'PT Serif', 'Cormorant Garamond', serif;
   --font-serif: Georgia, 'PT Serif', 'Cormorant Garamond', serif;
   --font-mono: Georgia, 'PT Serif', 'Cormorant Garamond', serif;
 
-  /* Базовая палитра */
-  --color-background: #eae4f4;
+  --color-background: #f2eef8;
   --color-foreground: #3d2657;
-
   --color-card: #e8e2f4;
   --color-card-foreground: #3d2657;
-
   --color-popover: #f2eef8;
   --color-popover-foreground: #3d2657;
-
   --color-primary: #7060a0;
   --color-primary-foreground: #f2eef8;
-
   --color-secondary: #e8e2f4;
   --color-secondary-foreground: #3d2657;
-
   --color-muted: #e8e2f4;
   --color-muted-foreground: #7060a0;
-
   --color-accent: #c8a855;
   --color-accent-foreground: #1e1030;
-
   --color-destructive: #8a6850;
   --color-destructive-foreground: #f2eef8;
-
   --color-border: #c0b0d0;
   --color-input: #c0b0d0;
   --color-ring: #7060a0;
@@ -50,30 +33,18 @@
   --radius-lg: 0.375rem;
   --radius-xl: 0.375rem;
 
-  /* Именованные цвета архива */
   --color-heading: #1e1030;
   --color-deep-violet: #1e1030;
   --color-dark-text: #b0a0c8;
-  --color-olive: #7060a0;
-  --color-ocher: #9a7258;
+  --color-ocher: #8a6850;
   --color-gold: #c8a855;
-  --color-section: #1e1030;
   --color-soft: #c0b0d0;
-  --color-museum-card: #e8e2f4;
-  --color-placeholder: #e8e2f4;
-  --color-brick: #8a6850;
-  --color-ink: #1e1030;
+  --color-placeholder: #d8c870;
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
+  * { @apply border-border outline-ring/50; }
+  html { scroll-behavior: smooth; }
   body {
     @apply bg-background text-foreground antialiased;
     font-family: Georgia, 'PT Serif', 'Cormorant Garamond', serif;
@@ -81,54 +52,16 @@
     font-weight: 400;
     line-height: 1.65;
   }
-
-  h1, h2, h3, h4, h5, h6,
-  p, a, span, small, cite, blockquote,
-  button, input, textarea, select, label {
+  h1,h2,h3,h4,h5,h6,p,a,span,small,cite,blockquote,button,input,textarea,select,label {
     font-family: Georgia, 'PT Serif', 'Cormorant Garamond', serif;
   }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply text-heading font-normal;
-    line-height: 1.2;
-  }
-
-  h1 {
-    font-size: 30px;
-    font-weight: 400;
-  }
-
-  h2 {
-    font-size: 22px;
-    font-weight: 400;
-  }
-
-  h3 {
-    font-size: 22px;
-    font-weight: 400;
-  }
-
-  a {
-    @apply transition-colors duration-200;
-  }
-
-  button, [role="button"] {
-    @apply transition-all duration-200;
-    font-size: 12px;
-    font-weight: 400;
-  }
+  h1,h2,h3,h4,h5,h6 { @apply text-heading font-normal; line-height: 1.2; }
+  h1 { font-size: 30px; }
+  h2,h3 { font-size: 22px; }
+  button,[role='button'] { @apply transition-all duration-200; font-size: 12px; font-weight: 400; }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  .text-pretty {
-    text-wrap: pretty;
-  }
-
-  .hover-olive:hover {
-    @apply text-primary;
-  }
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
 }
