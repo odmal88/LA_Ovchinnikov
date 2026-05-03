@@ -17,7 +17,7 @@
   --font-mono: Georgia, 'PT Serif', 'Cormorant Garamond', serif;
 
   /* Базовая палитра */
-  --color-background: #f2eef8;
+  --color-background: #eae4f4;
   --color-foreground: #3d2657;
 
   --color-card: #e8e2f4;
@@ -55,12 +55,12 @@
   --color-deep-violet: #1e1030;
   --color-dark-text: #b0a0c8;
   --color-olive: #7060a0;
-  --color-ocher: #8a6850;
+  --color-ocher: #9a7258;
   --color-gold: #c8a855;
   --color-section: #1e1030;
   --color-soft: #c0b0d0;
   --color-museum-card: #e8e2f4;
-  --color-placeholder: #d8c870;
+  --color-placeholder: #e8e2f4;
   --color-brick: #8a6850;
   --color-ink: #1e1030;
 }
