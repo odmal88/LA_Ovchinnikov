@@ -22,7 +22,6 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Закрываем мобильное меню при смене роута
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [pathname]);
@@ -30,38 +29,29 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-background/98 backdrop-blur-md shadow-md border-b border-soft/60 py-3"
-          : "bg-transparent py-5"
+        "fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-soft transition-all duration-300",
+        isScrolled ? "shadow-sm py-3" : "py-4"
       )}
     >
       <div className="container mx-auto px-4 md:px-6">
         <nav className="flex items-center justify-between">
-          {/* Логотип / Название */}
-          <Link
-            href="/"
-            className="flex flex-col hover-olive transition-colors"
-          >
-            <span className="font-serif text-lg md:text-xl font-medium text-foreground">
+          <Link href="/" className="flex flex-col text-heading hover:text-primary transition-colors">
+            <span className="font-serif text-[15px] md:text-[16px] font-normal leading-tight">
               {siteConfig.artistNameShort}
             </span>
-            <span className="text-xs text-muted-foreground hidden sm:block">
+            <span className="hidden sm:block text-[9px] font-normal uppercase tracking-[0.14em] text-primary mt-1">
               {siteConfig.archiveStatus}
             </span>
           </Link>
 
-          {/* Десктопная навигация */}
           <div className="hidden md:flex items-center gap-8">
             {navigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "text-sm font-medium transition-colors",
-                  pathname === item.href
-                    ? "text-olive"
-                    : "text-muted-foreground hover:text-foreground"
+                  "text-[12px] font-normal transition-colors",
+                  pathname === item.href ? "text-heading" : "text-primary hover:text-heading"
                 )}
               >
                 {item.name}
@@ -69,23 +59,17 @@ export function Header() {
             ))}
           </div>
 
-          {/* Кнопка мобильного меню */}
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="md:hidden text-primary hover:text-heading hover:bg-card"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Закрыть меню" : "Открыть меню"}
           >
-            {isMobileMenuOpen ? (
-              <X className="h-5 w-5" />
-            ) : (
-              <Menu className="h-5 w-5" />
-            )}
+            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </nav>
 
-        {/* Мобильное меню */}
         <div
           className={cn(
             "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
@@ -98,10 +82,10 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "px-2 py-2 text-base font-medium transition-colors rounded-md",
+                  "px-2 py-2 text-[14px] font-normal transition-colors rounded-md",
                   pathname === item.href
-                    ? "text-olive bg-secondary"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                    ? "text-heading bg-card"
+                    : "text-primary hover:text-heading hover:bg-card/70"
                 )}
               >
                 {item.name}
