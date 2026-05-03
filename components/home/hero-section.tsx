@@ -6,7 +6,7 @@ import { PlaceholderImage } from "@/components/shared/placeholder-image";
 
 export function HeroSection() {
   return (
-    <section className="min-h-[90vh] flex items-center pt-24 md:pt-28 bg-background">
+    <section className="min-h-[90vh] flex items-center pt-24 md:pt-28 bg-[#eae4f4]">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div className="order-2 lg:order-1">
@@ -42,7 +42,7 @@ export function HeroSection() {
               <div className="relative">
                 <PlaceholderImage
                   aspectRatio="portrait"
-                  className="w-full border border-soft bg-placeholder"
+                  className="w-full border border-soft bg-[#e8e2f4]"
                   text="Изображение работы будет добавлено"
                   size="lg"
                 />
