@@ -18,7 +18,7 @@ export function Timeline({ events, title }: TimelineProps) {
 
       <div className="relative">
         {/* Вертикальная линия */}
-        <div className="absolute left-3 md:left-4 top-0 bottom-0 w-px bg-soft" />
+        <div className="absolute left-3 md:left-4 top-0 bottom-0 w-px bg-soft/90" />
 
         {/* События */}
         <div className="space-y-8">
@@ -43,11 +43,11 @@ function TimelineItem({ event }: TimelineItemProps) {
         <div
           className={cn(
             "w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-soft bg-card flex items-center justify-center",
-            event.year && "bg-olive border-olive"
+            event.year && "bg-brick border-brick"
           )}
         >
           {event.year && (
-            <div className="w-2 h-2 rounded-full bg-primary-foreground" />
+            <div className="w-2 h-2 rounded-full bg-card" />
           )}
         </div>
       </div>
