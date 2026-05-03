@@ -2,6 +2,7 @@ import { Header, Footer } from "@/components/layout";
 import {
   HeroSection,
   FeaturedWorks,
+  ArchiveStructure,
   AboutPreview,
   QuoteBlock,
   CollectMaterials,
@@ -14,6 +15,7 @@ export default function HomePage() {
       <main>
         <HeroSection />
         <FeaturedWorks />
+        <ArchiveStructure />
         <AboutPreview />
         <QuoteBlock />
         <CollectMaterials />

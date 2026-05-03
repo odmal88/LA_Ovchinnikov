@@ -4,24 +4,16 @@ export function QuoteBlock() {
   const hasQuote = homeContent.quoteText !== null;
 
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="bg-background py-14 md:py-18">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-3xl mx-auto text-center border-y border-soft py-10 md:py-12">
+        <div className="mx-auto max-w-3xl border-y border-soft py-10 text-center md:py-12">
           {hasQuote ? (
             <>
-              <blockquote className="text-[14px] text-primary italic leading-relaxed mb-6">
-                &laquo;{homeContent.quoteText}&raquo;
-              </blockquote>
-              <cite className="text-[13px] text-primary not-italic">
-                Лев Авксентьевич Овчинников
-              </cite>
+              <blockquote className="mb-6 text-[15px] italic leading-relaxed text-primary">&laquo;{homeContent.quoteText}&raquo;</blockquote>
+              <cite className="text-[13px] not-italic text-primary">Лев Авксентьевич Овчинников</cite>
             </>
           ) : (
-            <div className="border border-dashed border-soft rounded-md p-8 md:p-12 bg-background">
-              <p className="text-[13px] text-primary italic leading-[1.65]">
-                {homeContent.quoteNote}
-              </p>
-            </div>
+            <p className="text-[13px] italic leading-[1.65] text-primary">{homeContent.quoteNote}</p>
           )}
         </div>
       </div>
