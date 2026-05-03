@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Send } from "lucide-react";
+import { FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -17,59 +17,59 @@ import { FieldGroup, Field, FieldLabel } from "@/components/ui/field";
 import { contactsContent } from "@/lib/data/site-config";
 
 export function ContactForm() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showNotice, setShowNotice] = useState(false);
   const [consent, setConsent] = useState(false);
+  const formText = contactsContent.form;
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // На первом этапе — имитация отправки
-    setIsSubmitted(true);
+    setShowNotice(true);
   };
-
-  if (isSubmitted) {
-    return (
-      <div className="p-8 bg-section rounded-sm border border-soft text-center">
-        <h3 className="font-serif text-xl text-foreground mb-2">
-          Сообщение отправлено
-        </h3>
-        <p className="text-muted-foreground">
-          Спасибо за обращение. Администратор архива рассмотрит ваше сообщение.
-        </p>
-      </div>
-    );
-  }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      {showNotice && (
+        <div className="p-5 bg-section rounded-sm border border-soft border-l-4 border-l-brick">
+          <h3 className="font-serif text-xl text-foreground mb-2">
+            {formText.notConnectedTitle}
+          </h3>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            {formText.notConnectedText}
+          </p>
+        </div>
+      )}
+
       <FieldGroup>
         <Field>
-          <FieldLabel htmlFor="name">Ваше имя</FieldLabel>
+          <FieldLabel htmlFor="name">{formText.nameLabel}</FieldLabel>
           <Input
             id="name"
             name="name"
             type="text"
-            placeholder="Как к вам обращаться"
+            placeholder={formText.namePlaceholder}
             required
           />
         </Field>
 
         <Field>
-          <FieldLabel htmlFor="contact">Email или телефон</FieldLabel>
+          <FieldLabel htmlFor="contact">{formText.contactLabel}</FieldLabel>
           <Input
             id="contact"
             name="contact"
             type="text"
-            placeholder="Контактные данные для связи"
+            placeholder={formText.contactPlaceholder}
             required
           />
         </Field>
       </FieldGroup>
 
       <Field>
-        <FieldLabel htmlFor="materialType">Тип материала</FieldLabel>
+        <FieldLabel htmlFor="materialType">
+          {formText.materialTypeLabel}
+        </FieldLabel>
         <Select name="materialType" required>
           <SelectTrigger id="materialType">
-            <SelectValue placeholder="Выберите тип материала" />
+            <SelectValue placeholder={formText.materialTypePlaceholder} />
           </SelectTrigger>
           <SelectContent>
             {contactsContent.materialTypes.map((type) => (
@@ -82,11 +82,11 @@ export function ContactForm() {
       </Field>
 
       <Field>
-        <FieldLabel htmlFor="message">Сообщение</FieldLabel>
+        <FieldLabel htmlFor="message">{formText.messageLabel}</FieldLabel>
         <Textarea
           id="message"
           name="message"
-          placeholder="Опишите материал, который хотите передать в архив"
+          placeholder={formText.messagePlaceholder}
           rows={5}
           required
         />
@@ -103,11 +103,10 @@ export function ContactForm() {
           htmlFor="consent"
           className="text-sm text-muted-foreground leading-relaxed cursor-pointer"
         >
-          Я согласен на обработку персональных данных для целей работы архива
+          {formText.consentLabel}
         </label>
       </div>
 
-      {/* Примечание */}
       <p className="text-xs text-muted-foreground bg-section p-3 rounded-sm">
         {contactsContent.formNote}
       </p>
@@ -115,11 +114,11 @@ export function ContactForm() {
       <Button
         type="submit"
         size="lg"
-        className="w-full sm:w-auto bg-olive hover:bg-olive/90"
+        className="w-full sm:w-auto bg-brick hover:bg-brick/90"
         disabled={!consent}
       >
-        Отправить
-        <Send className="ml-2 h-4 w-4" />
+        {formText.submitLabel}
+        <FileText className="ml-2 h-4 w-4" />
       </Button>
     </form>
   );
