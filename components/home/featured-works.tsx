@@ -4,7 +4,7 @@ import { getFeaturedWorks } from "@/lib/data/works";
 import { WorkCard } from "@/components/works/work-card";
 
 export function FeaturedWorks() {
-  const works = getFeaturedWorks();
+  const works = getFeaturedWorks().slice(0, 6);
 
   return (
     <section className="py-16 md:py-24 bg-background">

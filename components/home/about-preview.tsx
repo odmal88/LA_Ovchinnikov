@@ -21,7 +21,7 @@ export function AboutPreview() {
 
           <Link
             href="/about"
-            className="inline-flex items-center gap-2 text-[12px] text-gold hover:text-background font-normal transition-colors"
+            className="inline-flex items-center gap-2 text-[12px] text-gold hover:text-background italic transition-colors"
           >
             Подробнее о художнике
             <ArrowRight className="h-4 w-4" />

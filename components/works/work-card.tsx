@@ -18,7 +18,7 @@ export function WorkCard({ work, className, priority = false }: WorkCardProps) {
     <Link
       href={`/works/${work.slug}`}
       className={cn(
-        "group block bg-card rounded-md border border-soft overflow-hidden",
+        "group block bg-card rounded-md border border-soft overflow-hidden [border-width:0.5px]",
         "hover:border-primary hover:shadow-md transition-all duration-300",
         className
       )}
@@ -44,7 +44,7 @@ export function WorkCard({ work, className, priority = false }: WorkCardProps) {
       </div>
 
       <div className="p-4">
-        <h3 className="font-serif text-[16px] font-normal text-heading line-clamp-2 mb-2 group-hover:text-primary transition-colors">
+        <h3 className="font-serif text-[12px] font-normal text-heading line-clamp-2 mb-2 group-hover:text-primary transition-colors">
           {work.title}
         </h3>
 

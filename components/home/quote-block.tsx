@@ -9,7 +9,7 @@ export function QuoteBlock() {
         <div className="max-w-3xl mx-auto text-center border-y border-soft py-10 md:py-12">
           {hasQuote ? (
             <>
-              <blockquote className="font-serif text-[22px] md:text-[26px] text-heading italic leading-relaxed mb-6">
+              <blockquote className="text-[14px] text-primary italic leading-relaxed mb-6">
                 &laquo;{homeContent.quoteText}&raquo;
               </blockquote>
               <cite className="text-[13px] text-primary not-italic">
@@ -17,7 +17,7 @@ export function QuoteBlock() {
               </cite>
             </>
           ) : (
-            <div className="border border-dashed border-soft rounded-md p-8 md:p-12 bg-card">
+            <div className="border border-dashed border-soft rounded-md p-8 md:p-12 bg-background">
               <p className="text-[13px] text-primary italic leading-[1.65]">
                 {homeContent.quoteNote}
               </p>
