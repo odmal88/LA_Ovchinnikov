@@ -6,35 +6,25 @@ import { PlaceholderImage } from "@/components/shared/placeholder-image";
 
 export function HeroSection() {
   return (
-    <section className="min-h-[90vh] flex items-center pt-20 md:pt-24">
+    <section className="min-h-[90vh] flex items-center pt-24 md:pt-28 bg-background">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          {/* Текстовый блок */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div className="order-2 lg:order-1">
             <div className="max-w-xl">
-              {/* Статус архива */}
-              <p className="text-sm text-ocher uppercase tracking-wide mb-4">
+              <p className="text-[9px] font-normal text-primary uppercase tracking-[0.14em] mb-4">
                 {siteConfig.archiveStatus}
               </p>
-
-              {/* Имя художника */}
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-foreground mb-3 text-balance">
+              <h1 className="font-serif text-[30px] leading-tight font-normal text-heading mb-3 text-balance">
                 {siteConfig.artistName}
               </h1>
-
-              {/* Годы жизни */}
-              <p className="text-xl md:text-2xl text-muted-foreground mb-6">
+              <p className="text-[14px] italic text-primary mb-6">
                 {siteConfig.artistYears}
               </p>
-
-              {/* Вводный текст */}
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 text-pretty">
+              <p className="text-[13px] text-foreground leading-[1.65] mb-8 text-pretty">
                 {homeContent.heroSubtitle}
               </p>
-
-              {/* Кнопки действий */}
               <div className="flex flex-wrap gap-4">
-                <Button asChild size="lg" className="bg-olive hover:bg-olive/90">
+                <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
                   <Link href="/works">
                     Смотреть работы
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -46,19 +36,17 @@ export function HeroSection() {
               </div>
             </div>
           </div>
-
-          {/* Изображение */}
           <div className="order-1 lg:order-2">
-            <div className="relative">
-              {/* Декоративная рамка */}
-              <div className="absolute -inset-4 border border-soft rounded-sm -z-10 hidden md:block" />
-              
-              <PlaceholderImage
-                aspectRatio="portrait"
-                className="w-full max-w-md mx-auto lg:max-w-none"
-                text="Изображение работы будет добавлено"
-                size="lg"
-              />
+            <div className="relative max-w-md mx-auto lg:max-w-none bg-gold p-5 md:p-7 rounded-md">
+              <div className="hidden md:block absolute -inset-3 border border-soft rounded-md" />
+              <div className="relative">
+                <PlaceholderImage
+                  aspectRatio="portrait"
+                  className="w-full border border-soft bg-placeholder"
+                  text="Изображение работы будет добавлено"
+                  size="lg"
+                />
+              </div>
             </div>
           </div>
         </div>

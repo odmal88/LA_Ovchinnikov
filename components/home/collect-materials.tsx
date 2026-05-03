@@ -5,18 +5,18 @@ import { homeContent } from "@/lib/data/site-config";
 
 export function CollectMaterials() {
   return (
-    <section className="py-16 md:py-24 bg-section">
+    <section className="py-16 md:py-24 bg-ocher">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-6">
+          <h2 className="font-serif text-[22px] font-normal text-background mb-6">
             {homeContent.collectMaterials.title}
           </h2>
 
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 text-pretty">
+          <p className="text-[13px] text-background leading-[1.65] mb-8 text-pretty">
             {homeContent.collectMaterials.text}
           </p>
 
-          <Button asChild size="lg" variant="outline">
+          <Button asChild size="lg" className="bg-gold text-heading hover:bg-gold/90">
             <Link href="/contacts">
               Передать сведения
               <ArrowRight className="ml-2 h-4 w-4" />
