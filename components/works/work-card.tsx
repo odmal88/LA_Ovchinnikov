@@ -18,37 +18,35 @@ export function WorkCard({ work, className, priority = false }: WorkCardProps) {
     <Link
       href={`/works/${work.slug}`}
       className={cn(
-        "group block bg-card rounded-md border border-soft overflow-hidden [border-width:0.5px]",
-        "hover:border-primary hover:shadow-md transition-all duration-300",
-        className
+        "group block overflow-hidden border border-soft bg-card [border-width:1px]",
+        "transition-all duration-300 hover:border-primary",
+        className,
       )}
     >
-      <div className="relative aspect-[4/3] overflow-hidden bg-placeholder">
+      <div className="relative aspect-[4/3] overflow-hidden border-b border-soft bg-placeholder">
         {hasImage ? (
           <Image
             src={work.imageThumb || work.imageFull || ""}
             alt={work.title}
             fill
             priority={priority}
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
           />
         ) : (
           <PlaceholderImage
             aspectRatio="auto"
-            className="w-full h-full rounded-none border-0"
+            className="h-full w-full rounded-none border-0"
             size="sm"
           />
         )}
-
-        <div className="absolute inset-0 bg-heading/0 group-hover:bg-heading/5 transition-colors duration-300" />
       </div>
 
       <div className="p-4">
-        <h3 className="font-serif text-[12px] font-normal text-heading line-clamp-2 mb-2 group-hover:text-primary transition-colors">
+        <h3 className="mb-2 font-serif text-[14px] font-normal text-heading line-clamp-2 transition-colors group-hover:text-primary">
           {work.title}
         </h3>
 
-        <div className="flex flex-wrap gap-x-3 gap-y-1 text-[10px] italic text-primary">
+        <div className="flex flex-wrap gap-x-3 gap-y-1 text-[11px] italic text-primary">
           {work.date && <span>{work.date}</span>}
           {!work.date && work.period && <span>{periodLabels[work.period]}</span>}
           {work.technique && <span>{techniqueLabels[work.technique]}</span>}
