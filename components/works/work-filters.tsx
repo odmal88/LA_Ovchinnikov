@@ -1,7 +1,5 @@
 "use client";
 
-import { useCallback } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
 import { Search, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import {
@@ -39,70 +37,46 @@ const techniques: { value: Technique | "all"; label: string }[] = [
   })),
 ];
 
-interface WorkFiltersProps {
-  currentFilters: {
-    period?: string;
-    genre?: string;
-    technique?: string;
-    search?: string;
-  };
+export interface WorkCatalogFilters {
+  period: string;
+  genre: string;
+  technique: string;
+  search: string;
 }
 
-export function WorkFilters({ currentFilters }: WorkFiltersProps) {
-  const router = useRouter();
-  const searchParams = useSearchParams();
+interface WorkFiltersProps {
+  filters: WorkCatalogFilters;
+  onFiltersChange: (filters: WorkCatalogFilters) => void;
+}
 
-  const updateFilters = useCallback(
-    (key: string, value: string) => {
-      const params = new URLSearchParams(searchParams.toString());
-
-      if (value && value !== "all") {
-        params.set(key, value);
-      } else {
-        params.delete(key);
-      }
-
-      router.push(`/works?${params.toString()}`, { scroll: false });
-    },
-    [router, searchParams]
-  );
-
-  const clearFilters = useCallback(() => {
-    router.push("/works", { scroll: false });
-  }, [router]);
-
+export function WorkFilters({ filters, onFiltersChange }: WorkFiltersProps) {
   const hasActiveFilters =
-    currentFilters.period ||
-    currentFilters.genre ||
-    currentFilters.technique ||
-    currentFilters.search;
+    filters.period !== "all" ||
+    filters.genre !== "all" ||
+    filters.technique !== "all" ||
+    filters.search.trim().length > 0;
 
   return (
     <div className="space-y-4">
-      {/* Поиск */}
       <div className="relative">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <Input
           type="search"
           placeholder="Поиск по названию..."
           className="pl-10"
-          defaultValue={currentFilters.search || ""}
-          onChange={(e) => {
-            // Debounce search
-            const value = e.target.value;
-            const timeoutId = setTimeout(() => {
-              updateFilters("search", value);
-            }, 300);
-            return () => clearTimeout(timeoutId);
-          }}
+          value={filters.search}
+          onChange={(e) =>
+            onFiltersChange({ ...filters, search: e.target.value })
+          }
         />
       </div>
 
-      {/* Фильтры */}
       <div className="flex flex-wrap gap-3">
         <Select
-          value={currentFilters.period || "all"}
-          onValueChange={(value) => updateFilters("period", value)}
+          value={filters.period}
+          onValueChange={(value) =>
+            onFiltersChange({ ...filters, period: value })
+          }
         >
           <SelectTrigger className="w-full sm:w-[180px]">
             <SelectValue placeholder="Период" />
@@ -117,8 +91,8 @@ export function WorkFilters({ currentFilters }: WorkFiltersProps) {
         </Select>
 
         <Select
-          value={currentFilters.genre || "all"}
-          onValueChange={(value) => updateFilters("genre", value)}
+          value={filters.genre}
+          onValueChange={(value) => onFiltersChange({ ...filters, genre: value })}
         >
           <SelectTrigger className="w-full sm:w-[180px]">
             <SelectValue placeholder="Жанр" />
@@ -133,8 +107,10 @@ export function WorkFilters({ currentFilters }: WorkFiltersProps) {
         </Select>
 
         <Select
-          value={currentFilters.technique || "all"}
-          onValueChange={(value) => updateFilters("technique", value)}
+          value={filters.technique}
+          onValueChange={(value) =>
+            onFiltersChange({ ...filters, technique: value })
+          }
         >
           <SelectTrigger className="w-full sm:w-[180px]">
             <SelectValue placeholder="Техника" />
@@ -148,12 +124,18 @@ export function WorkFilters({ currentFilters }: WorkFiltersProps) {
           </SelectContent>
         </Select>
 
-        {/* Сброс фильтров */}
         {hasActiveFilters && (
           <Button
             variant="ghost"
             size="sm"
-            onClick={clearFilters}
+            onClick={() =>
+              onFiltersChange({
+                period: "all",
+                genre: "all",
+                technique: "all",
+                search: "",
+              })
+            }
             className="text-muted-foreground hover:text-foreground"
           >
             <X className="h-4 w-4 mr-1" />
