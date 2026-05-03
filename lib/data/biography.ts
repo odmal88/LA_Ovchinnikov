@@ -32,7 +32,7 @@ export const biographyEvents: BiographyEvent[] = [
     year: undefined,
     type: "family",
     title: "Семья и мастерская",
-    text: "Мастерская Льва Авксентьевича стала местом формирования художественной преемственности. Здесь сложились профессиональные навыки и взгляд на искусство, которые позднее унаследовал Александр Львович Овчинников.",
+    text: "Мастерская Льва Авксентьевича стала местом формирования художественной преемственности. Здесь складывались профессиональная дисциплина, отношение к художественному труду и уважение к натуре, предмету и месту.",
     isPublic: true,
   },
   {
@@ -72,21 +72,21 @@ export function getBiographyByPeriods(): {
   events: BiographyEvent[];
 }[] {
   const events = getPublicBiographyEvents();
-  
+
   return [
     {
       title: "Ранние годы",
-      events: events.filter((e) => e.year && e.year < 1950),
+      events: events.filter((event) => event.year && event.year < 1950),
     },
     {
       title: "Становление и зрелость",
       events: events.filter(
-        (e) => !e.year || (e.year >= 1950 && e.year < 2001)
+        (event) => !event.year || (event.year >= 1950 && event.year < 2001)
       ),
     },
     {
       title: "Память и наследие",
-      events: events.filter((e) => e.year && e.year >= 2001),
+      events: events.filter((event) => event.year && event.year >= 2001),
     },
   ].filter((period) => period.events.length > 0);
 }
