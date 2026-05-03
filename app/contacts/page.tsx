@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Header, Footer } from "@/components/layout";
 import { ContactForm } from "@/components/shared/contact-form";
-import { siteConfig, contactsContent } from "@/lib/data/site-config";
+import { contactsContent } from "@/lib/data/site-config";
 
 export const metadata: Metadata = {
   title: "Контакты",
-  description: `Передать сведения в архив ${siteConfig.artistName}. Произведения, фотографии, документы, воспоминания.`,
+  description: contactsContent.metadataDescription,
 };
 
 export default function ContactsPage() {
@@ -15,7 +15,6 @@ export default function ContactsPage() {
       <main className="pt-24 pb-16 md:pb-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-            {/* Текстовый блок */}
             <div>
               <h1 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
                 {contactsContent.title}
@@ -29,26 +28,22 @@ export default function ContactsPage() {
                 ))}
               </div>
 
-              {/* Типы материалов */}
               <div className="bg-section p-6 rounded-sm border border-soft">
                 <h2 className="font-medium text-foreground mb-4">
-                  Какие материалы помогут архиву
+                  {contactsContent.materialsHelpTitle}
                 </h2>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>Произведения художника (живопись, графика)</li>
-                  <li>Архивные фотографии</li>
-                  <li>Документы (выставочные каталоги, приглашения, письма)</li>
-                  <li>Воспоминания о художнике</li>
-                  <li>Сведения о выставках и публикациях</li>
+                  {contactsContent.materialsHelpItems.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
                 </ul>
               </div>
             </div>
 
-            {/* Форма */}
             <div>
               <div className="bg-card p-6 md:p-8 rounded-sm border border-soft">
                 <h2 className="font-serif text-xl text-foreground mb-6">
-                  Форма обращения
+                  {contactsContent.form.title}
                 </h2>
                 <ContactForm />
               </div>
