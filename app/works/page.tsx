@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { Header, Footer } from "@/components/layout";
-import { WorkFilters, WorkGrid } from "@/components/works";
-import { filterWorks } from "@/lib/data/works";
+import { WorksCatalog } from "@/components/works";
+import { getPublicWorks } from "@/lib/data/works";
 import { worksPageContent } from "@/lib/data/site-config";
 
 export const metadata: Metadata = {
@@ -10,18 +9,8 @@ export const metadata: Metadata = {
   description: worksPageContent.metadataDescription,
 };
 
-interface WorksPageProps {
-  searchParams: Promise<{
-    period?: string;
-    genre?: string;
-    technique?: string;
-    search?: string;
-  }>;
-}
-
-export default async function WorksPage({ searchParams }: WorksPageProps) {
-  const params = await searchParams;
-  const works = filterWorks(params);
+export default function WorksPage() {
+  const works = getPublicWorks();
 
   return (
     <>
@@ -37,17 +26,7 @@ export default async function WorksPage({ searchParams }: WorksPageProps) {
             </p>
           </div>
 
-          <div className="mb-8">
-            <Suspense fallback={<div className="h-20" />}>
-              <WorkFilters currentFilters={params} />
-            </Suspense>
-          </div>
-
-          <p className="text-sm text-muted-foreground mb-6">
-            {worksPageContent.foundCountLabel}: {works.length}
-          </p>
-
-          <WorkGrid works={works} />
+          <WorksCatalog works={works} />
         </div>
       </main>
       <Footer />
