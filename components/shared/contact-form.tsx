@@ -125,19 +125,25 @@ export function ContactForm() {
         </label>
       </div>
 
-      <p className="text-xs text-muted-foreground bg-section p-3 rounded-sm">
-        {contactsContent.formNote}
-      </p>
-
       <Button
         type="submit"
         size="lg"
-        className="w-full sm:w-auto bg-brick hover:bg-brick/90"
+        className="w-full sm:w-auto bg-brick text-background hover:bg-brick/90 disabled:cursor-not-allowed disabled:bg-brick/70 disabled:text-background disabled:opacity-100"
         disabled={!consent}
       >
         {formText.submitLabel}
         <FileText className="ml-2 h-4 w-4" />
       </Button>
+
+      {!consent && (
+        <p className="text-xs text-muted-foreground">
+          Чтобы отправить обращение, отметьте согласие на обработку персональных данных.
+        </p>
+      )}
+
+      <p className="text-xs text-muted-foreground bg-section p-3 rounded-sm">
+        {contactsContent.formNote}
+      </p>
     </form>
   );
 }
