@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { FileText } from "lucide-react";
+import { FileText, LoaderCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -20,6 +20,7 @@ const FORM_ENDPOINT = "https://formsubmit.co/od03@yandex.ru";
 export function ContactForm() {
   const [showNotice, setShowNotice] = useState(false);
   const [consent, setConsent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [nextUrl, setNextUrl] = useState("");
   const [pageUrl, setPageUrl] = useState("");
   const formText = contactsContent.form;
@@ -33,8 +34,12 @@ export function ContactForm() {
     setShowNotice(params.get("sent") === "1");
   }, []);
 
+  const handleSubmit = () => {
+    setIsSubmitting(true);
+  };
+
   return (
-    <form action={FORM_ENDPOINT} method="POST" className="space-y-6">
+    <form action={FORM_ENDPOINT} method="POST" className="space-y-6" onSubmit={handleSubmit}>
       {showNotice && (
         <div className="p-5 bg-section rounded-sm border border-soft border-l-4 border-l-brick">
           <h3 className="font-serif text-xl text-foreground mb-2">
@@ -126,16 +131,21 @@ export function ContactForm() {
 
       <button
         type="submit"
-        disabled={!consent}
-        className="inline-flex w-full items-center justify-center rounded-sm px-6 py-3 text-sm font-medium transition-opacity sm:w-auto disabled:cursor-not-allowed disabled:opacity-60"
+        disabled={!consent || isSubmitting}
+        aria-busy={isSubmitting}
+        className="inline-flex w-full items-center justify-center rounded-sm px-6 py-3 text-sm font-medium shadow-sm transition-all duration-150 ease-out sm:w-auto hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7060a0] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:shadow-sm disabled:active:scale-100"
         style={{
           backgroundColor: "#1e1030",
           border: "1px solid #1e1030",
           color: "#f2eef8",
         }}
       >
-        {formText.submitLabel}
-        <FileText className="ml-2 h-4 w-4" />
+        {isSubmitting ? "Отправляем..." : formText.submitLabel}
+        {isSubmitting ? (
+          <LoaderCircle className="ml-2 h-4 w-4 animate-spin" />
+        ) : (
+          <FileText className="ml-2 h-4 w-4" />
+        )}
       </button>
 
       {!consent && (
