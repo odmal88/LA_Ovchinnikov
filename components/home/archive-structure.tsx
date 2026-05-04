@@ -24,10 +24,12 @@ export function ArchiveStructure() {
 
           <div className="grid grid-cols-1 border border-soft/35 sm:grid-cols-2 lg:grid-cols-3">
             {archiveSections.map((section) => (
-              <article key={section.number} className="flex min-h-48 flex-col justify-between border-b border-r border-soft/35 p-5 sm:p-6">
+              <article key={section.number} className="flex min-h-44 flex-col justify-between border-b border-r border-soft/35 p-5 sm:p-6">
                 <div>
-                  <p className="mb-4 text-[34px] italic leading-none text-gold md:text-[42px]">{section.number}</p>
-                  <h3 className="mb-3 text-[18px] text-background">{section.title}</h3>
+                  <div className="mb-4 flex items-baseline gap-3">
+                    <p className="text-[18px] italic leading-none text-gold/80 md:text-[20px]">{section.number}</p>
+                    <h3 className="text-[18px] text-background md:text-[19px]">{section.title}</h3>
+                  </div>
                   <p className="text-[12px] leading-[1.6] text-dark-text">{section.subtitle}</p>
                 </div>
                 <Link href={section.href} className="mt-6 text-[11px] uppercase tracking-[0.08em] text-gold hover:text-background">
