@@ -3,7 +3,8 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Header, Footer } from "@/components/layout";
 import { ArticleProgress } from "@/components/shared/article-progress";
-import { aboutContent, siteConfig } from "@/lib/data/site-config";
+import { ArticleToc } from "@/components/shared/article-toc";
+import { aboutContent } from "@/lib/data/site-config";
 
 export const metadata: Metadata = {
   title: aboutContent.title,
@@ -16,6 +17,8 @@ const articleSections = aboutContent.sections.map((section, index) => ({
   number: String(index + 1).padStart(2, "0"),
   paragraphs: section.text.split("\n\n").filter(Boolean),
 }));
+
+const tocSections = articleSections.map(({ id, number, title }) => ({ id, number, title }));
 
 const timelineItems = [
   { year: "1926", label: "Пурех" },
@@ -36,19 +39,7 @@ export default function AboutPage() {
         <section className="border-b border-soft bg-card/75">
           <div className="container mx-auto px-4 py-10 md:px-6 md:py-14">
             <div className="grid gap-10 lg:grid-cols-[220px_minmax(0,760px)] xl:grid-cols-[240px_minmax(0,780px)_1fr] xl:gap-14">
-              <aside className="hidden lg:block">
-                <div className="sticky top-28 border-l border-soft pl-5">
-                  <p className="mb-5 text-[10px] uppercase tracking-[0.16em] text-primary">Разделы статьи</p>
-                  <nav className="grid gap-2.5">
-                    {articleSections.map((section) => (
-                      <a key={section.id} href={`#${section.id}`} className="group grid grid-cols-[28px_1fr] gap-3 text-[11px] leading-[1.35] text-primary/75 transition-colors hover:text-heading">
-                        <span className="italic text-gold/80 transition-colors group-hover:text-heading">{section.number}</span>
-                        <span>{section.title}</span>
-                      </a>
-                    ))}
-                  </nav>
-                </div>
-              </aside>
+              <div className="hidden lg:block" aria-hidden="true" />
 
               <div>
                 <p className="mb-5 text-[10px] uppercase tracking-[0.16em] text-primary">01 / О художнике</p>
@@ -110,7 +101,9 @@ export default function AboutPage() {
             </details>
 
             <div className="grid gap-10 lg:grid-cols-[220px_minmax(0,760px)] xl:grid-cols-[240px_minmax(0,780px)_1fr] xl:gap-14">
-              <div className="hidden lg:block" aria-hidden="true" />
+              <aside className="hidden lg:block">
+                <ArticleToc sections={tocSections} />
+              </aside>
 
               <article className="space-y-11 md:space-y-14">
                 {articleSections.map((section, index) => (
