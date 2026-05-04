@@ -28,9 +28,9 @@ export function Footer() {
 
         <div className="mt-10 border-t border-soft/35 pt-7">
           <p className="max-w-2xl text-[13px] leading-relaxed text-dark-text">
-            Если у вас есть сведения о произведениях художника, архивные фотографии или документы, вы можете{" "}
+            Если вас заинтересовало произведение Льва Авксентьевича Овчинникова или вы располагаете сведениями для архива, вы можете{" "}
             <Link href="/contacts" className="text-gold underline underline-offset-2 transition-colors hover:text-background">
-              передать их в архив
+              задать вопрос
             </Link>
             .
           </p>
