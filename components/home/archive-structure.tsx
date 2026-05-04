@@ -11,23 +11,26 @@ const archiveSections = [
 
 export function ArchiveStructure() {
   return (
-    <section className="bg-deep-violet py-16 md:py-20">
+    <section className="bg-deep-violet py-18 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.6fr] lg:gap-12">
-          <div>
-            <p className="mb-3 text-[10px] uppercase tracking-[0.14em] text-gold">редакционная навигация</p>
-            <h2 className="font-serif text-[30px] text-background">Структура архива</h2>
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.7fr] lg:gap-16">
+          <div className="border-l border-gold pl-5 md:pl-6">
+            <p className="mb-4 text-[10px] uppercase tracking-[0.14em] text-gold">структура архива</p>
+            <h2 className="font-serif text-[32px] leading-tight text-background md:text-[38px]">Направления</h2>
+            <p className="mt-5 max-w-sm text-[13px] leading-[1.65] text-dark-text">
+              Архив организован как система разделов: произведения, биография, мастерская, документы, память и выставочная история.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border border-soft/35">
+          <div className="grid grid-cols-1 border border-soft/35 sm:grid-cols-2 lg:grid-cols-3">
             {archiveSections.map((section) => (
-              <article key={section.number} className="flex min-h-44 flex-col justify-between border-b border-r border-soft/35 p-5 sm:p-6">
+              <article key={section.number} className="flex min-h-48 flex-col justify-between border-b border-r border-soft/35 p-5 sm:p-6">
                 <div>
-                  <p className="mb-3 text-[20px] italic text-gold">{section.number}</p>
+                  <p className="mb-4 text-[34px] italic leading-none text-gold md:text-[42px]">{section.number}</p>
                   <h3 className="mb-3 text-[18px] text-background">{section.title}</h3>
                   <p className="text-[12px] leading-[1.6] text-dark-text">{section.subtitle}</p>
                 </div>
-                <Link href={section.href} className="mt-5 text-[11px] uppercase tracking-[0.08em] text-gold hover:text-background">
+                <Link href={section.href} className="mt-6 text-[11px] uppercase tracking-[0.08em] text-gold hover:text-background">
                   Перейти →
                 </Link>
               </article>
