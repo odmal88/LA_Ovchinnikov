@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { homeContent, siteConfig } from "@/lib/data/site-config";
 
 export function HeroSection() {
   return (
@@ -9,11 +10,17 @@ export function HeroSection() {
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-18">
           <div className="order-1">
             <div className="max-w-2xl">
-              <p className="mb-5 text-[10px] uppercase tracking-[0.14em] text-primary">официальный цифровой арт-архив</p>
-              <h1 className="mb-5 font-serif text-[48px] leading-[1.04] text-heading md:text-[68px]">Лев Авксентьевич Овчинников</h1>
-              <p className="mb-7 text-[18px] italic text-gold">1926–2001</p>
+              <p className="mb-5 text-[10px] uppercase tracking-[0.14em] text-primary">
+                {siteConfig.archiveStatus}
+              </p>
+              <h1 className="mb-5 font-serif text-[48px] leading-[1.04] text-heading md:text-[68px]">
+                {siteConfig.artistName}
+              </h1>
+              <p className="mb-7 text-[18px] italic text-gold">
+                {siteConfig.artistYears}
+              </p>
               <p className="mb-9 max-w-xl text-[15px] leading-[1.65] text-foreground">
-                Художник, чья жизнь и работа связаны с профессиональной культурой мастерской, вниманием к натуре, предмету, месту и человеческой памяти.
+                {homeContent.heroSubtitle}
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button asChild size="lg" className="rounded-none border border-gold bg-primary px-[22px] py-[10px] text-primary-foreground hover:bg-heading">
