@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { FileText } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -125,15 +124,19 @@ export function ContactForm() {
         </label>
       </div>
 
-      <Button
+      <button
         type="submit"
-        size="lg"
-        className="w-full sm:w-auto bg-brick text-background hover:bg-brick/90 disabled:cursor-not-allowed disabled:bg-brick/70 disabled:text-background disabled:opacity-100"
         disabled={!consent}
+        className="inline-flex w-full items-center justify-center rounded-sm px-6 py-3 text-sm font-medium transition-opacity sm:w-auto disabled:cursor-not-allowed disabled:opacity-60"
+        style={{
+          backgroundColor: "#1e1030",
+          border: "1px solid #1e1030",
+          color: "#f2eef8",
+        }}
       >
         {formText.submitLabel}
         <FileText className="ml-2 h-4 w-4" />
-      </Button>
+      </button>
 
       {!consent && (
         <p className="text-xs text-muted-foreground">
