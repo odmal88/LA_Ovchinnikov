@@ -33,9 +33,16 @@ export function HeroSection() {
             </div>
           </div>
           <div className="order-2">
-            <div className="border border-soft bg-gold p-4 md:p-6">
-              <img src="/images/hero/rainbow-landscape.png" alt="Панорамный пейзаж с радугой" className="w-full border border-soft bg-placeholder object-cover" />
-            </div>
+            <figure className="border border-soft bg-gold p-4 md:p-6">
+              <img
+                src="/works/lev/archive/lev-ovchinnikov-workshop.svg"
+                alt="Лев Авксентьевич Овчинников в мастерской"
+                className="w-full border border-soft bg-placeholder object-cover"
+              />
+              <figcaption className="mt-3 text-[12px] leading-relaxed text-heading/70">
+                Лев Авксентьевич Овчинников в мастерской. Семейный архив.
+              </figcaption>
+            </figure>
           </div>
         </div>
       </div>
