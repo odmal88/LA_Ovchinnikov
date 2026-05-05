@@ -33,11 +33,13 @@ export function HeroSection() {
             </div>
           </div>
           <div className="order-2">
-            <figure className="border border-soft bg-gold p-4 md:p-6">
+            <figure className="ml-auto max-w-[430px] border border-soft bg-gold p-4 md:p-6">
               <img
-                src="/works/lev/archive/lev-ovchinnikov-workshop.svg?v=20260505b"
+                src="/works/lev/archive/lev-ovchinnikov-workshop.svg?v=20260505c"
                 alt="Лев Авксентьевич Овчинников в мастерской"
-                className="w-full border border-soft bg-placeholder object-cover"
+                width={400}
+                height={400}
+                className="block h-auto w-full border border-soft bg-placeholder"
               />
               <figcaption className="mt-3 text-[12px] leading-relaxed text-heading/70">
                 Лев Авксентьевич Овчинников в мастерской. Семейный архив.
