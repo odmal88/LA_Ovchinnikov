@@ -6,7 +6,7 @@ const archiveSections = [
   { number: "03", title: "Мастерская и среда", subtitle: "Профессиональный контекст, художественная дисциплина, круг общения.", href: "/about" },
   { number: "04", title: "Тексты и документы", subtitle: "Архивные материалы, описания, свидетельства и источники.", href: "/contacts" },
   { number: "05", title: "Память", subtitle: "Собираемые воспоминания, фотографии и семейные свидетельства.", href: "/contacts" },
-  { number: "06", title: "Выставки", subtitle: "Сведения о показах, каталогах и публикациях по мере уточнения.", href: "/contacts" },
+  { number: "06", title: "Выставки", subtitle: "Сведения о показах, каталогах и публикациях по мере уточнения.", href: "/exhibitions" },
 ];
 
 export function ArchiveStructure() {
