@@ -17,6 +17,7 @@ export const navigation = [
   { name: "Работы", href: "/works" },
   { name: "О художнике", href: "/about" },
   { name: "Биография", href: "/biography" },
+  { name: "Выставки", href: "/exhibitions" },
   { name: "Контакты", href: "/contacts" },
 ] as const;
 
