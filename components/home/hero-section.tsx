@@ -35,7 +35,7 @@ export function HeroSection() {
           <div className="order-2">
             <figure className="ml-auto max-w-[430px] border border-soft bg-gold p-4 md:p-6">
               <img
-                src="/works/lev/archive/lev-ovchinnikov-workshop.svg?v=20260505c"
+                src="/works/lev/archive/lev-ovchinnikov-workshop.jpg?v=20260505-original"
                 alt="Лев Авксентьевич Овчинников в мастерской"
                 width={400}
                 height={400}
