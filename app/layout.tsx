@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import { YandexMetrika } from "@/components/analytics/yandex-metrika";
 import { siteConfig } from "@/lib/data/site-config";
 import "./globals.css";
 
@@ -54,6 +55,7 @@ export default function RootLayout({
     <html lang="ru">
       <body className="font-serif antialiased bg-background text-foreground">
         {children}
+        <YandexMetrika />
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>
