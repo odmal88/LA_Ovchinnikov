@@ -77,3 +77,5 @@ jobs:
 
           git commit -m "Add Lev Ovchinnikov works catalog and images"
           git push
+
+# Triggered after package was uploaded to the repository root.
