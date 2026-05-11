@@ -1,30 +1,26 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { YandexMetrika } from "@/components/analytics/yandex-metrika";
-import { siteConfig } from "@/lib/data/site-config";
+import { seoKeywords, siteConfig, siteUrl } from "@/lib/data/site-config";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: siteConfig.siteTitle,
     template: `%s | ${siteConfig.artistNameShort}`,
   },
   description: siteConfig.siteDescription,
-  keywords: [
-    "Лев Овчинников",
-    "Лев Авксентьевич Овчинников",
-    "художник",
-    "живопись",
-    "Ленинград",
-    "Санкт-Петербург",
-    "русское искусство",
-    "цифровой архив",
-  ],
+  keywords: [...seoKeywords.default],
   authors: [{ name: "Архив Л.А. Овчинникова" }],
   creator: "Архив Л.А. Овчинникова",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "ru_RU",
+    url: siteUrl,
     siteName: siteConfig.siteTitle,
     title: siteConfig.siteTitle,
     description: siteConfig.siteDescription,
@@ -37,6 +33,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
