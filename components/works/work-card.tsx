@@ -30,7 +30,8 @@ export function WorkCard({ work, className, priority = false }: WorkCardProps) {
             alt={work.title}
             fill
             priority={priority}
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
           />
         ) : (
           <PlaceholderImage

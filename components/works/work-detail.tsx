@@ -15,20 +15,19 @@ interface WorkDetailProps {
 }
 
 export function WorkDetail({ work }: WorkDetailProps) {
+  const hasArchiveInfo =
+    Boolean(work.signature) ||
+    Boolean(work.provenance) ||
+    Boolean(work.condition) ||
+    Boolean(work.inscriptions?.length);
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-      {/* Изображение */}
       <div>
-        <ImageZoom
-          src={work.imageFull}
-          alt={work.title}
-          className="w-full"
-        />
+        <ImageZoom src={work.imageFull} alt={work.title} className="w-full" />
       </div>
 
-      {/* Информация о работе */}
       <div>
-        {/* Навигация назад */}
         <Button
           asChild
           variant="ghost"
@@ -41,15 +40,12 @@ export function WorkDetail({ work }: WorkDetailProps) {
           </Link>
         </Button>
 
-        {/* Название */}
         <h1 className="font-serif text-3xl md:text-4xl text-foreground mb-4 text-balance">
           {work.title}
         </h1>
 
-        {/* Автор */}
         <p className="text-lg text-muted-foreground mb-6">{work.artist}</p>
 
-        {/* Метаданные */}
         <div className="space-y-4 mb-8">
           <MetaRow label="Дата" value={work.date || periodLabels[work.period]} />
           <MetaRow label="Техника" value={techniqueLabels[work.technique]} />
@@ -59,25 +55,46 @@ export function WorkDetail({ work }: WorkDetailProps) {
           {work.place && <MetaRow label="Место" value={work.place} />}
         </div>
 
-        {/* Описание */}
-        {work.descriptionShort && (
-          <div className="mb-8">
+        {(work.descriptionShort || work.descriptionFull) && (
+          <div className="mb-8 space-y-4">
             <h2 className="font-medium text-foreground mb-2">Описание</h2>
-            <p className="text-muted-foreground leading-relaxed">
-              {work.descriptionShort}
-            </p>
+            {work.descriptionShort && (
+              <p className="text-muted-foreground leading-relaxed">
+                {work.descriptionShort}
+              </p>
+            )}
+            {work.descriptionFull && (
+              <p className="text-muted-foreground leading-relaxed">
+                {work.descriptionFull}
+              </p>
+            )}
           </div>
         )}
 
-        {/* Статус атрибуции */}
+        {hasArchiveInfo && (
+          <div className="mb-8 border-t border-soft pt-6">
+            <h2 className="font-medium text-foreground mb-3">Архивные сведения</h2>
+            <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
+              {work.signature && <p>{work.signature}</p>}
+              {work.provenance && <p>Собрание: {work.provenance}</p>}
+              {work.condition && <p>Состояние: {work.condition}</p>}
+              {work.inscriptions?.length ? (
+                <ul className="list-disc pl-5 space-y-2">
+                  {work.inscriptions.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+          </div>
+        )}
+
         <div className="pt-6 border-t border-soft">
           <p className="text-sm text-muted-foreground">
             <span className="font-medium">Статус сведений:</span>{" "}
             {attributionStatusLabels[work.attributionStatus]}
           </p>
-          <p className="text-xs text-muted-foreground mt-2">
-            ID: {work.id}
-          </p>
+          <p className="text-xs text-muted-foreground mt-2">ID: {work.id}</p>
         </div>
       </div>
     </div>
