@@ -1,0 +1,79 @@
+name: Apply Lev Ovchinnikov catalog package
+
+on:
+  push:
+    paths:
+      - "LA_Ovchinnikov_site_update.zip"
+      - ".github/workflows/apply-lev-catalog.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply-package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check package exists
+        run: |
+          if [ ! -f LA_Ovchinnikov_site_update.zip ]; then
+            echo "LA_Ovchinnikov_site_update.zip not found in repository root"
+            exit 1
+          fi
+
+      - name: Apply package to repository root
+        run: |
+          rm -rf /tmp/lev-catalog-update
+          mkdir -p /tmp/lev-catalog-update
+          unzip -q -o LA_Ovchinnikov_site_update.zip -d /tmp/lev-catalog-update
+
+          if [ -d /tmp/lev-catalog-update/LA_Ovchinnikov_site_update ]; then
+            cp -R /tmp/lev-catalog-update/LA_Ovchinnikov_site_update/. .
+          else
+            cp -R /tmp/lev-catalog-update/. .
+          fi
+
+          rm -f LA_Ovchinnikov_site_update.zip
+
+          echo "Applied files:"
+          test -f lib/data/works.ts
+          test -d public/works/lev/full
+          test -d public/works/lev/thumbs
+          test -d public/works/lev/details
+          test -f components/works/work-card.tsx
+          test -f components/works/image-zoom.tsx
+          test -f components/works/work-detail.tsx
+          find public/works/lev -maxdepth 3 -type f | sort | head -40
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Commit applied catalog
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A lib/data/works.ts components/works public/works/lev LA_Ovchinnikov_site_update.zip
+
+          if git diff --cached --quiet; then
+            echo "No catalog changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Add Lev Ovchinnikov works catalog and images"
+          git push
