@@ -13,6 +13,7 @@ interface WorkCardProps {
 
 export function WorkCard({ work, className, priority = false }: WorkCardProps) {
   const hasImage = work.imageThumb || work.imageFull;
+  const imageAlt = `${work.artist}. ${work.title}. ${work.date || periodLabels[work.period]}. ${techniqueLabels[work.technique]}. Официальный цифровой архив.`;
 
   return (
     <Link
@@ -27,7 +28,7 @@ export function WorkCard({ work, className, priority = false }: WorkCardProps) {
         {hasImage ? (
           <Image
             src={work.imageThumb || work.imageFull || ""}
-            alt={work.title}
+            alt={imageAlt}
             fill
             priority={priority}
             className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
