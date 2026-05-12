@@ -2,13 +2,77 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Header, Footer } from "@/components/layout";
+import { JsonLd } from "@/components/seo/json-ld";
 import { Timeline } from "@/components/biography";
 import { getPublicBiographyEvents } from "@/lib/data/biography";
-import { siteConfig, biographyPageContent } from "@/lib/data/site-config";
+import { siteConfig, biographyPageContent, seoKeywords, siteUrl } from "@/lib/data/site-config";
 
 export const metadata: Metadata = {
   title: biographyPageContent.title,
   description: biographyPageContent.metadataDescription,
+  keywords: [...seoKeywords.biography],
+  alternates: {
+    canonical: "/biography",
+  },
+  openGraph: {
+    type: "website",
+    locale: "ru_RU",
+    url: `${siteUrl}/biography`,
+    siteName: siteConfig.siteTitle,
+    title: biographyPageContent.title,
+    description: biographyPageContent.metadataDescription,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: biographyPageContent.title,
+    description: biographyPageContent.metadataDescription,
+  },
+};
+
+const biographyJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": `${siteUrl}/biography#profile`,
+  url: `${siteUrl}/biography`,
+  name: biographyPageContent.title,
+  description: biographyPageContent.metadataDescription,
+  inLanguage: "ru-RU",
+  mainEntity: {
+    "@type": "Person",
+    "@id": `${siteUrl}/#lev-ovchinnikov`,
+    name: siteConfig.artistName,
+    givenName: "Лев",
+    additionalName: "Авксентьевич",
+    familyName: "Овчинников",
+    birthDate: "1926-08-06",
+    deathDate: "2003-03-04",
+    birthPlace: {
+      "@type": "Place",
+      name: "Пурех, Нижегородская земля",
+    },
+    deathPlace: {
+      "@type": "Place",
+      name: "Санкт-Петербург",
+    },
+    jobTitle: "Художник",
+  },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Главная",
+        item: siteUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Биография",
+        item: `${siteUrl}/biography`,
+      },
+    ],
+  },
 };
 
 const biographyFilters = ["Все", "Море", "Искусство", "Север", "Педагогика", "Память"];
@@ -27,6 +91,7 @@ export default function BiographyPage() {
     <>
       <Header />
       <main className="bg-background pt-20">
+        <JsonLd data={biographyJsonLd} />
         <section className="border-b border-soft bg-card py-12 md:py-16">
           <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-wrap items-end justify-between gap-8">
