@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Header, Footer } from "@/components/layout";
+import { JsonLd } from "@/components/seo/json-ld";
+import { seoKeywords, siteConfig, siteUrl } from "@/lib/data/site-config";
 import {
   catalogSources,
   collectionLocations,
@@ -15,6 +17,60 @@ import {
 export const metadata: Metadata = {
   title: exhibitionsPageContent.title,
   description: exhibitionsPageContent.metadataDescription,
+  keywords: [...seoKeywords.exhibitions],
+  alternates: {
+    canonical: "/exhibitions",
+  },
+  openGraph: {
+    type: "website",
+    locale: "ru_RU",
+    url: `${siteUrl}/exhibitions`,
+    siteName: siteConfig.siteTitle,
+    title: exhibitionsPageContent.title,
+    description: exhibitionsPageContent.metadataDescription,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: exhibitionsPageContent.title,
+    description: exhibitionsPageContent.metadataDescription,
+  },
+};
+
+const exhibitionsJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": `${siteUrl}/exhibitions#exhibitions`,
+  url: `${siteUrl}/exhibitions`,
+  name: exhibitionsPageContent.title,
+  description: exhibitionsPageContent.metadataDescription,
+  inLanguage: "ru-RU",
+  isPartOf: {
+    "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
+    name: siteConfig.siteTitle,
+  },
+  about: {
+    "@type": "Person",
+    "@id": `${siteUrl}/#lev-ovchinnikov`,
+    name: siteConfig.artistName,
+  },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Главная",
+        item: siteUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Выставки",
+        item: `${siteUrl}/exhibitions`,
+      },
+    ],
+  },
 };
 
 const statusLabels: Record<ExhibitionStatus, string> = {
@@ -55,6 +111,7 @@ export default function ExhibitionsPage() {
     <>
       <Header />
       <main className="bg-background pt-20">
+        <JsonLd data={exhibitionsJsonLd} />
         <section className="border-b border-soft bg-card py-12 md:py-18">
           <div className="container mx-auto grid gap-10 px-4 md:px-6 lg:grid-cols-[1.4fr_0.8fr] lg:items-end">
             <div>
