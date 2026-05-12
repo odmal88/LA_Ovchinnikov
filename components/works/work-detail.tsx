@@ -15,13 +15,15 @@ interface WorkDetailProps {
 }
 
 export function WorkDetail({ work }: WorkDetailProps) {
+  const imageAlt = `${work.artist}. ${work.title}. ${work.date || periodLabels[work.period]}. ${techniqueLabels[work.technique]}. Официальный цифровой архив.`;
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
       {/* Изображение */}
       <div>
         <ImageZoom
           src={work.imageFull}
-          alt={work.title}
+          alt={imageAlt}
           className="w-full"
         />
       </div>
