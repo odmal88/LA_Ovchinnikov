@@ -1,11 +1,66 @@
 import type { Metadata } from "next";
 import { Header, Footer } from "@/components/layout";
+import { JsonLd } from "@/components/seo/json-ld";
 import { ContactForm } from "@/components/shared/contact-form";
-import { contactsContent } from "@/lib/data/site-config";
+import { contactsContent, seoKeywords, siteConfig, siteUrl } from "@/lib/data/site-config";
 
 export const metadata: Metadata = {
-  title: "Контакты",
+  title: contactsContent.title,
   description: contactsContent.metadataDescription,
+  keywords: [...seoKeywords.contacts],
+  alternates: {
+    canonical: "/contacts",
+  },
+  openGraph: {
+    type: "website",
+    locale: "ru_RU",
+    url: `${siteUrl}/contacts`,
+    siteName: siteConfig.siteTitle,
+    title: contactsContent.title,
+    description: contactsContent.metadataDescription,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: contactsContent.title,
+    description: contactsContent.metadataDescription,
+  },
+};
+
+const contactsJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": `${siteUrl}/contacts#contact`,
+  url: `${siteUrl}/contacts`,
+  name: contactsContent.title,
+  description: contactsContent.metadataDescription,
+  inLanguage: "ru-RU",
+  isPartOf: {
+    "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
+    name: siteConfig.siteTitle,
+  },
+  about: {
+    "@type": "Person",
+    "@id": `${siteUrl}/#lev-ovchinnikov`,
+    name: siteConfig.artistName,
+  },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Главная",
+        item: siteUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Контакты",
+        item: `${siteUrl}/contacts`,
+      },
+    ],
+  },
 };
 
 export default function ContactsPage() {
@@ -13,6 +68,7 @@ export default function ContactsPage() {
     <>
       <Header />
       <main className="pt-24 pb-16 md:pb-24">
+        <JsonLd data={contactsJsonLd} />
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
             <div>
