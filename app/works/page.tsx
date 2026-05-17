@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Header, Footer } from "@/components/layout";
 import { WorksCatalog } from "@/components/works";
 import { getPublicWorks } from "@/lib/data/works";
+import { extraWorks } from "@/lib/data/works-extra";
 import { worksPageContent } from "@/lib/data/site-config";
 
 export const metadata: Metadata = {
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function WorksPage() {
-  const works = getPublicWorks();
+  const works = [...getPublicWorks(), ...extraWorks.filter((work) => work.isPublic)];
 
   return (
     <>
