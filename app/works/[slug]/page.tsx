@@ -2,15 +2,24 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Header, Footer } from "@/components/layout";
 import { WorkDetail } from "@/components/works/work-detail";
-import { getWorkBySlug, getPublicWorks } from "@/lib/data/works";
+import { getPublicWorks } from "@/lib/data/works";
+import { extraWorks } from "@/lib/data/works-extra";
 import { siteConfig } from "@/lib/data/site-config";
 
 interface WorkPageProps {
   params: Promise<{ slug: string }>;
 }
 
+function getAllPublicWorks() {
+  return [...getPublicWorks(), ...extraWorks.filter((work) => work.isPublic)];
+}
+
+function findWorkBySlug(slug: string) {
+  return getAllPublicWorks().find((work) => work.slug === slug);
+}
+
 export async function generateStaticParams() {
-  const works = getPublicWorks();
+  const works = getAllPublicWorks();
   return works.map((work) => ({
     slug: work.slug,
   }));
@@ -20,7 +29,7 @@ export async function generateMetadata({
   params,
 }: WorkPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const work = getWorkBySlug(slug);
+  const work = findWorkBySlug(slug);
 
   if (!work) {
     return {
@@ -38,7 +47,7 @@ export async function generateMetadata({
 
 export default async function WorkPage({ params }: WorkPageProps) {
   const { slug } = await params;
-  const work = getWorkBySlug(slug);
+  const work = findWorkBySlug(slug);
 
   if (!work || !work.isPublic) {
     notFound();
