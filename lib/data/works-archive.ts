@@ -5,7 +5,8 @@ const artist = "Лев Авксентьевич Овчинников";
 // Архивная часть каталога Льва Авксентьевича Овчинникова.
 // Данные сняты с авторских надписей на оборотах работ; размеры приведены так,
 // как их записал автор. Описания произведений пишутся отдельно и добавляются
-// по мере готовности, поэтому записи закрыты флагом isPublic: false.
+// по мере готовности: у записи без текста страница работы выводится без блока
+// описания, каталожные сведения при этом показываются полностью.
 export const archiveWorks: Work[] = [
   {
     id: "LO-030",
@@ -18,34 +19,42 @@ export const archiveWorks: Work[] = [
     material: "Основа уточняется",
     dimensions: "25×35 см",
     genre: "landscape",
+    descriptionShort:
+      "Летний день у бани: справа во весь рост встаёт серебристо-серый бревенчатый сруб, слева — сосновые стволы и трава такой яркости, какая бывает только в июне. Между ними, в глубине, приткнулся серый сарайчик и жёлтая полоса свежего покоса.",
+    descriptionFull:
+      "Вся работа — про столкновение двух фактур. Сруб написан крупно и вещественно: каждый венец взят отдельным мазком, торцы брёвен выложены плотными округлыми плашками, и стена читается почти на ощупь. Зелень же положена свободно, широкими текучими движениями, и рядом с тяжёлым деревом она кажется невесомой. Художник ставит баню вплотную к правому краю и обрезает её — от этого возникает ощущение, что зритель стоит рядом, у самого угла. Пространство уходит влево, между стволами, к светлой воде у левого края. Скамья перед срубом и жёлтый покос — две горизонтали, которые удерживают композицию и не дают ей опрокинуться вправо.",
     imageFull: "/works/lev/full/lo-030-u-bani-1955.webp",
     imageThumb: "/works/lev/thumbs/lo-030-u-bani-1955.webp",
     imageDetails: ["/works/lev/details/lo-030-oborot.webp"],
     inscriptions: ["Оборот: «У бани / 25×35 / 1955»."],
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
-    internalNotes: "Инв. № 178 по оборотной надписи. второй номер 920; подпись «Овчинников Лев Авксентьевич» Описание к произведению ещё не написано.",
-    isPublic: false,
+    internalNotes: "Инв. № 178 по оборотной надписи. второй номер 920; подпись «Овчинников Лев Авксентьевич»",
+    isPublic: true,
   },
   {
     id: "LO-031",
     slug: "bez-nazvaniya-1955",
     artist,
-    title: "Без названия",
+    title: "Без названия. Валун в лесу",
     date: "1955",
     period: "early",
     technique: "oil",
     material: "Холст, масло",
     dimensions: "49×37 см",
     genre: "landscape",
+    descriptionShort:
+      "Огромный серый валун лежит посреди леса, занимая почти весь холст. Вокруг — тёмная хвоя, тонкие стволы, мох и трава у подножия; сверху в просвет между ветвями видна полоса белёсого неба.",
+    descriptionFull:
+      "Работа держится на одном большом объёме. Валун написан ровно, почти без мазка, сплошной серо-лиловой массой, и эта гладкость резко отличает его от всего остального: лес вокруг набран дробно, мелкими тычками кисти, зелень положена в несколько слоёв, дальний план дробится на пятна. Камень оказывается единственным спокойным местом картины — и потому кажется древнее и тяжелее всего, что его окружает. Цвет сдержан до предела: зелёное, оливковое, серое, с одним ярко-зелёным пятном травы у основания камня. Небольшой холст, а мотив в нём взят монументально.",
     imageFull: "/works/lev/full/lo-031-bez-nazvaniya-1955.webp",
     imageThumb: "/works/lev/thumbs/lo-031-bez-nazvaniya-1955.webp",
     imageDetails: ["/works/lev/details/lo-031-oborot.webp"],
     inscriptions: ["Оборот: «49×37 / х/м / 1955»."],
-    attributionStatus: "confirmed",
+    attributionStatus: "needs_review",
     provenance: "Собрание семьи художника",
-    internalNotes: "Инв. № 940 по оборотной надписи. портрет; имя и фамилия портретируемого не читаются Описание к произведению ещё не написано.",
-    isPublic: false,
+    internalNotes: "Инв. № 940 по оборотной надписи. На обороте есть надпись, часть которой ранее читалась как имя портретируемого, однако на работе изображён лесной пейзаж — прочтение сомнительно и требует сверки. Название дано описательно.",
+    isPublic: true,
   },
   {
     id: "LO-032",
@@ -58,14 +67,18 @@ export const archiveWorks: Work[] = [
     material: "Картон, масло",
     dimensions: "33×37 см",
     genre: "portrait",
+    descriptionShort:
+      "Погрудный портрет на ровном сине-лиловом фоне. Женщина в синем сарафане поверх белой блузы с широким отложным воротником повёрнута вполоборота и смотрит мимо зрителя.",
+    descriptionFull:
+      "Портрет построен на прямом столкновении двух цветов: холодной сини одежды и фона — и тёплой охры лица. Промежуточных тонов почти нет, лицо вылеплено крупными плоскостями, скула и висок положены одним движением, и от этой обобщённости голова приобретает почти скульптурную определённость. Белый воротник работает как светлая пауза между двумя синими массами и держит центр композиции. Фон взят совершенно ровно, без всякой среды: художника не занимает, где сидит модель, его занимает форма головы и характер взгляда — сосредоточенного, чуть отстранённого. Работа небольшая, почти квадратная, но написана с той степенью решительности, которая обычно достаётся большим холстам.",
     imageFull: "/works/lev/full/lo-032-zhenschina-v-siney-kofte-1956.webp",
     imageThumb: "/works/lev/thumbs/lo-032-zhenschina-v-siney-kofte-1956.webp",
     imageDetails: ["/works/lev/details/lo-032-oborot.webp"],
     inscriptions: ["Оборот: «Женщина в синей кофте / 33×37 / к/м / 1956»."],
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
-    internalNotes: "Инв. № 833 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    internalNotes: "Инв. № 833 по оборотной надписи.",
+    isPublic: true,
   },
   {
     id: "LO-033",
@@ -78,14 +91,18 @@ export const archiveWorks: Work[] = [
     material: "Картон, масло",
     dimensions: "32×47 см",
     genre: "landscape",
+    descriptionShort:
+      "Сырая дорога, в которой всё отражается, серо-голубой дом под красной крышей, штакетник, телеграфный столб. У обочины на ярко-зелёной скамейке сидят двое — мужчина в тёмном пальто и женщина в синем с красным платком.",
+    descriptionFull:
+      "Почти вся картина написана в одной приглушённой серо-лиловой гамме — мокрый асфальт, обшивка дома, голые деревья, тяжёлое небо; и в эту серость художник вставляет три чистых цвета: красную крышу, зелёную скамейку и красный платок. Больше ничего яркого нет, и этого хватает, чтобы холст ожил. Нижняя треть отдана дороге, написанной длинными горизонтальными мазками с размытыми отражениями, — она и создаёт ощущение сырого дня. Две фигуры на скамейке взяты совсем небольшими и вынесены к правому краю: они не в центре события, они и есть событие — двое ждут автобуса, и вокруг них тихо.",
     imageFull: "/works/lev/full/lo-033-na-avtobusnoy-ostanovke-u-doma-tvorchestva-v-zelenogorske-1956.webp",
     imageThumb: "/works/lev/thumbs/lo-033-na-avtobusnoy-ostanovke-u-doma-tvorchestva-v-zelenogorske-1956.webp",
     imageDetails: ["/works/lev/details/lo-033-oborot.webp"],
     inscriptions: ["Оборот: «На автобусной остановке (у Дома творчества в Зеленогорске) / 32×47 / к/м / 1956»."],
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
-    internalNotes: "приписка «левая сторона» Описание к произведению ещё не написано.",
-    isPublic: false,
+    internalNotes: "приписка «левая сторона»",
+    isPublic: true,
   },
   {
     id: "LO-034",
@@ -97,15 +114,19 @@ export const archiveWorks: Work[] = [
     technique: "oil",
     material: "Холст, масло",
     dimensions: "57×83 см",
-    genre: "landscape",
+    genre: "genre_composition",
+    descriptionShort:
+      "Трое рыбаков несут на плечах сеть. Фигуры выстроены в ряд поперёк холста, сеть переброшена через них длинной светлой волной, а справа тянется гроздь деревянных поплавков.",
+    descriptionFull:
+      "Здесь художник уходит от этюда к композиции, и манера меняется вместе с задачей: фон взят одной ровной светло-зелёной плоскостью, тени убраны, фигуры обведены звонким синим контуром. Получается почти фреска — плоская, ритмичная, построенная на повторе. Ритм задают три фигуры и три пары рук, а связывает их сеть: она проходит через весь холст единой дугой и превращает трёх отдельных людей в одно общее движение. Цвет сведён к немногому — сине-серая роба, полосатая тельняшка в центре, охристо-красные лица и кисти рук, лиловая земля под ногами. Название «Утро» не описывает время суток буквально: холодный ровный свет и есть утро, в котором работа только начинается.",
     imageFull: "/works/lev/full/lo-034-utro-1956.webp",
     imageThumb: "/works/lev/thumbs/lo-034-utro-1956.webp",
     imageDetails: ["/works/lev/details/lo-034-oborot.webp"],
     inscriptions: ["Оборот: «Утро / 57×83 / х/м / 1956»."],
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
-    internalNotes: "Инв. № 754 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    internalNotes: "Инв. № 754 по оборотной надписи.",
+    isPublic: true,
   },
   {
     id: "LO-035",
@@ -125,7 +146,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 600 по оборотной надписи. второй номер 39/605 Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-036",
@@ -145,7 +166,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-037",
@@ -165,7 +186,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-038",
@@ -185,7 +206,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "название фабрики не читается Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-039",
@@ -205,7 +226,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 204 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-040",
@@ -225,7 +246,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "подтвердилось после усиления Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-041",
@@ -245,7 +266,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 500 по оборотной надписи. подпись «Овчинников Лев Авксентьевич»; внизу «С.-Петербург» Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-042",
@@ -265,7 +286,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 504 по оборотной надписи. справа вторая надпись «Варнек», х/м, о. Вайгач, 1958, 28×48 — относится к другой работе; на обороте две надписи; по пропорции работе соответствует «Варнек», а не «Северная деревня, 48-33» — та относится к другой вещи Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-043",
@@ -285,7 +306,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "дата VIII.1958; размер уточнён увеличением: 33,5×50 Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-044",
@@ -305,7 +326,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 439 по оборотной надписи. приписка «на о. Вайгач»; название читается неуверенно Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-045",
@@ -325,7 +346,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 934 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-046",
@@ -345,7 +366,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 580 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-047",
@@ -365,7 +386,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 677 по оборотной надписи. приписка «выставка, Русский музей, каталог» Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-048",
@@ -385,7 +406,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 597 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-049",
@@ -405,7 +426,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 503 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-050",
@@ -425,7 +446,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-051",
@@ -445,7 +466,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "название прочитано после усиления Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-052",
@@ -465,7 +486,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-053",
@@ -485,7 +506,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 950 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-054",
@@ -505,7 +526,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "needs_review",
     provenance: "Собрание семьи художника",
     internalNotes: "название не читается Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-055",
@@ -525,7 +546,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-056",
@@ -545,7 +566,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-057",
@@ -565,7 +586,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-058",
@@ -585,7 +606,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-059",
@@ -605,7 +626,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "надпись: «п-т В. И. Ройхета, народного художника России» Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-060",
@@ -625,7 +646,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 79 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-061",
@@ -645,7 +666,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "приписка «деревня Цвелодубово, Рощинский р-н» Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-062",
@@ -665,7 +686,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "год и размер уточнены после усиления Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-063",
@@ -685,7 +706,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 292 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-064",
@@ -705,7 +726,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "на обороте карандашный набросок Адмиралтейства и ещё надписи по краю Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-065",
@@ -725,7 +746,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 645 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-066",
@@ -745,7 +766,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 478 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-067",
@@ -765,7 +786,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "парная работа с предыдущей, надписи совпадают Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-068",
@@ -785,7 +806,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-069",
@@ -805,7 +826,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 371 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-070",
@@ -825,7 +846,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 117 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-071",
@@ -845,7 +866,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 630 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-072",
@@ -865,7 +886,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 920 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-073",
@@ -885,7 +906,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 660 по оборотной надписи. пункт назначения читается неуверенно; второй номер 659 Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-074",
@@ -905,7 +926,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "надпись боком Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-075",
@@ -925,7 +946,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "надпись боком Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-076",
@@ -945,7 +966,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-077",
@@ -965,7 +986,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 345 по оборотной надписи. надпись перевёрнута Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-078",
@@ -985,7 +1006,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 369 по оборотной надписи. надпись перевёрнута; название читается неуверенно; подпись «Овчинников Лев Авксентьевич»; размер уточнён увеличением: 50,5×71 Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-079",
@@ -1005,7 +1026,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 311 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-080",
@@ -1025,7 +1046,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-081",
@@ -1045,7 +1066,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 586 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-082",
@@ -1065,7 +1086,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 356 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-083",
@@ -1085,7 +1106,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 388 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-084",
@@ -1105,7 +1126,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 607 по оборотной надписи. приписка «фото 31.X.91» Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-085",
@@ -1125,7 +1146,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 506 по оборотной надписи. штамп Художественного фонда Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-086",
@@ -1145,7 +1166,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 601 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-087",
@@ -1165,7 +1186,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 602 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-088",
@@ -1185,7 +1206,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 517 по оборотной надписи. внизу вторая приписка оранжевым, читается неуверенно Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-089",
@@ -1205,7 +1226,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 522 по оборотной надписи. внизу вторая надпись «Зима на лодочной станции», С.-Петербург Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-090",
@@ -1225,7 +1246,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 380 по оборотной надписи. второй номер 340 Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-091",
@@ -1245,7 +1266,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 342 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-092",
@@ -1265,7 +1286,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 307 по оборотной надписи. приписка «Литва» Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-093",
@@ -1285,7 +1306,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 410 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-094",
@@ -1305,7 +1326,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 750 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-095",
@@ -1325,7 +1346,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 614 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-096",
@@ -1345,7 +1366,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 395 по оборотной надписи. надпись перевёрнута Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-097",
@@ -1365,7 +1386,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-098",
@@ -1385,7 +1406,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 650 по оборотной надписи. название полностью подтвердилось после усиления Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-099",
@@ -1405,7 +1426,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 396 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-100",
@@ -1425,7 +1446,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 428 по оборотной надписи. наклейка аукциона, лот 109; над названием стёртая надпись Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-101",
@@ -1445,7 +1466,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 370 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-102",
@@ -1465,7 +1486,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 490 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-103",
@@ -1485,7 +1506,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 603 по оборотной надписи. слово «верфь» подтвердилось после усиления Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-104",
@@ -1505,7 +1526,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 604 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-105",
@@ -1525,7 +1546,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-106",
@@ -1545,7 +1566,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 378 по оборотной надписи. наклейка аукциона, лот 150 Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-107",
@@ -1565,7 +1586,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 375 по оборотной надписи. второй номер 376 Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-108",
@@ -1585,7 +1606,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-109",
@@ -1605,7 +1626,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 639 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-110",
@@ -1625,7 +1646,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 749 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-111",
@@ -1645,7 +1666,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 387 по оборотной надписи. штамп Художественного фонда Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-112",
@@ -1665,7 +1686,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 836 по оборотной надписи. название подтвердилось после усиления Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-113",
@@ -1685,7 +1706,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-114",
@@ -1705,7 +1726,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 755 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-115",
@@ -1725,7 +1746,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "внизу перевёрнутая надпись «Февраль в деревне, 50×70, к/м» — от соседней работы Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-116",
@@ -1745,7 +1766,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 543 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-117",
@@ -1765,7 +1786,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 358 по оборотной надписи. внизу приписка «С.-Петербург» Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-118",
@@ -1785,7 +1806,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 629 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-119",
@@ -1805,7 +1826,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 902 по оборотной надписи. название подтвердилось после усиления; размер записан в мм: 440×650 Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-120",
@@ -1825,7 +1846,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 894 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-121",
@@ -1845,7 +1866,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 587 по оборотной надписи. надпись перевёрнута; год уточнён: 1963 Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-122",
@@ -1865,7 +1886,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 005 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-123",
@@ -1885,7 +1906,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 598 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-124",
@@ -1905,7 +1926,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 731 по оборотной надписи. наклейка с номером 36 Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-125",
@@ -1925,7 +1946,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 723 по оборотной надписи. топоним прочитан после усиления: Тракай, Литва Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-126",
@@ -1945,7 +1966,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 864 по оборотной надписи. отчество прочитано после усиления: Фёдорович; размер записан в мм: 615×462 Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-127",
@@ -1965,7 +1986,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 651 по оборотной надписи. рядом с годом топоним, читается неуверенно Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-128",
@@ -1985,7 +2006,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "д. Пески (Балтика); подпись «Овчинников Л. Авксентьевич» Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-129",
@@ -2005,7 +2026,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "аукционный лот 115 Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-130",
@@ -2025,7 +2046,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 338 по оборотной надписи. название прочитано после усиления контраста Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-131",
@@ -2045,7 +2066,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 88 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-132",
@@ -2065,7 +2086,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-133",
@@ -2085,7 +2106,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 47 по оборотной надписи. название читается неуверенно; размер и год уточнены Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-134",
@@ -2105,7 +2126,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 189 по оборотной надписи. красная пометка «С-ПБ 64,5×54» — перемер Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-135",
@@ -2125,7 +2146,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 14 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-136",
@@ -2145,7 +2166,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-137",
@@ -2165,7 +2186,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 748 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-138",
@@ -2185,7 +2206,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 35 по оборотной надписи. размер уточнён увеличением: 69,5×54, а не 89,5×54 Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-139",
@@ -2205,7 +2226,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 872 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-140",
@@ -2225,7 +2246,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 294 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-141",
@@ -2245,7 +2266,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 406 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-142",
@@ -2265,7 +2286,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 29 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-143",
@@ -2285,7 +2306,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 404 по оборотной надписи. надпись перевёрнута Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-144",
@@ -2305,7 +2326,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 288 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-145",
@@ -2325,7 +2346,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 289 по оборотной надписи. выше видна надпись «Натюрморт» с соседнего холста Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-146",
@@ -2345,7 +2366,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 411 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-147",
@@ -2365,7 +2386,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 989 по оборотной надписи. название подтвердилось после усиления Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-148",
@@ -2385,7 +2406,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 832 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-149",
@@ -2405,7 +2426,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-150",
@@ -2425,7 +2446,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 32 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-151",
@@ -2445,7 +2466,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 7 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-152",
@@ -2465,7 +2486,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 407 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-153",
@@ -2485,7 +2506,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 688 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-154",
@@ -2505,7 +2526,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "аукционный лот 114 Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-155",
@@ -2525,7 +2546,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 359 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-156",
@@ -2545,7 +2566,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 037 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-157",
@@ -2565,7 +2586,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 533 по оборотной надписи. уточнение в скобках подтвердилось после усиления Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-158",
@@ -2585,7 +2606,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 51 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-159",
@@ -2605,7 +2626,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 712 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-160",
@@ -2625,7 +2646,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 298 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-161",
@@ -2645,7 +2666,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-162",
@@ -2665,7 +2686,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 56 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-163",
@@ -2685,7 +2706,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 218 по оборотной надписи. приписка «д. Реболда, Соловки, Белое море» Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-164",
@@ -2705,7 +2726,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 222 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-165",
@@ -2725,7 +2746,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-166",
@@ -2745,7 +2766,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-167",
@@ -2765,7 +2786,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 337 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-168",
@@ -2785,7 +2806,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 219 по оборотной надписи. приписка «Азия» Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-169",
@@ -2805,7 +2826,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 217 по оборотной надписи. подпись «Овчинников Лев Авкс.»; внизу вверх ногами вторая, неразборчивая надпись Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-170",
@@ -2825,7 +2846,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 829 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-171",
@@ -2845,7 +2866,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 131 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-172",
@@ -2865,7 +2886,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 654 по оборотной надписи. второй номер 223 Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-173",
@@ -2885,7 +2906,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 162 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-174",
@@ -2905,7 +2926,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-175",
@@ -2925,7 +2946,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 563 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-176",
@@ -2945,7 +2966,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 317 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-177",
@@ -2965,7 +2986,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-178",
@@ -2985,7 +3006,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 110 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-179",
@@ -3005,7 +3026,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 134 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-180",
@@ -3025,7 +3046,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 235 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-181",
@@ -3045,7 +3066,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 116 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-182",
@@ -3065,7 +3086,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 133 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-183",
@@ -3085,7 +3106,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 609 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-184",
@@ -3105,7 +3126,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 622 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-185",
@@ -3125,7 +3146,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-186",
@@ -3145,7 +3166,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 865 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-187",
@@ -3165,7 +3186,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 534 по оборотной надписи. приписка «С.-Петербург, дом художников» Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-188",
@@ -3185,7 +3206,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 9 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-189",
@@ -3205,7 +3226,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 241 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-190",
@@ -3225,7 +3246,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 118 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-191",
@@ -3245,7 +3266,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 242 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-192",
@@ -3265,7 +3286,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 215 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-193",
@@ -3285,7 +3306,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 773 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-194",
@@ -3305,7 +3326,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 196 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-195",
@@ -3325,7 +3346,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 54 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-196",
@@ -3345,7 +3366,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 24 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-197",
@@ -3365,7 +3386,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-198",
@@ -3385,7 +3406,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 243 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-199",
@@ -3405,7 +3426,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 341 по оборотной надписи. штамп художественного фонда Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-200",
@@ -3425,7 +3446,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 42 по оборотной надписи. рядом вторая дата, читается неуверенно Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-201",
@@ -3445,7 +3466,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-202",
@@ -3465,7 +3486,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-203",
@@ -3485,7 +3506,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 716 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-204",
@@ -3505,7 +3526,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-205",
@@ -3525,7 +3546,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 588 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-206",
@@ -3545,7 +3566,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 186 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-207",
@@ -3565,7 +3586,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 889 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-208",
@@ -3585,7 +3606,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 757 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-209",
@@ -3605,7 +3626,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 729 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-210",
@@ -3625,7 +3646,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 254 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-211",
@@ -3645,7 +3666,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-212",
@@ -3665,7 +3686,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 332 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-213",
@@ -3685,7 +3706,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 271 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-214",
@@ -3705,7 +3726,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 315 по оборотной надписи. размер и год подтвердились после усиления Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-215",
@@ -3725,7 +3746,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 309 по оборотной надписи. последняя цифра года не читается Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-216",
@@ -3745,7 +3766,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 185 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-217",
@@ -3765,7 +3786,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 216 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-218",
@@ -3785,7 +3806,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 132 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-219",
@@ -3805,7 +3826,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 640 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-220",
@@ -3825,7 +3846,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 753 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-221",
@@ -3845,7 +3866,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-222",
@@ -3865,7 +3886,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 452 по оборотной надписи. год уточнён после усиления Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-223",
@@ -3885,7 +3906,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 477 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-224",
@@ -3905,7 +3926,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 590 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-225",
@@ -3925,7 +3946,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 2 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-226",
@@ -3945,7 +3966,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 733 по оборотной надписи. приписка «левой рукой» — работа писана левой рукой; даты уточнены: 1988–2000 Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-227",
@@ -3965,7 +3986,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 475 по оборотной надписи. портрет художника А. С. Ведерникова Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-228",
@@ -3985,7 +4006,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 760 по оборотной надписи. уточнение в скобках прочитано после усиления Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-229",
@@ -4004,7 +4025,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 869 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-230",
@@ -4023,7 +4044,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 631 по оборотной надписи. вторая пометка «605-А» Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-231",
@@ -4042,7 +4063,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 687 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-232",
@@ -4061,7 +4082,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-233",
@@ -4080,7 +4101,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "needs_review",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 1458 по оборотной надписи. размер и год читаются неуверенно Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-234",
@@ -4099,7 +4120,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 901 по оборотной надписи. первое слово «Вешки» подтвердилось; второе читается неуверенно Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-235",
@@ -4118,7 +4139,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 163 по оборотной надписи. надпись перевёрнута Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-236",
@@ -4137,7 +4158,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 146 по оборотной надписи. фамилия в названии читается неуверенно Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-237",
@@ -4156,7 +4177,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 343 по оборотной надписи. название прочитано после усиления контраста Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-238",
@@ -4175,7 +4196,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-239",
@@ -4194,7 +4215,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "название подтвердилось после усиления Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-240",
@@ -4213,7 +4234,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "выставка 1959 г. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-241",
@@ -4232,7 +4253,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 230 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-242",
@@ -4251,7 +4272,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "фамилия подтверждена надписью на обороте «На даче» (№534) Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-243",
@@ -4270,7 +4291,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 852 по оборотной надписи. название подтвердилось после усиления Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-244",
@@ -4289,7 +4310,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 361 по оборотной надписи. прежнее название «Пароход» зачёркнуто; наклейка аукциона «Лен-Совет» №30, лот 83, 08.04.2017; подпись «Овчинников Лев Ал. 1926» — год рождения Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-245",
@@ -4308,7 +4329,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "приписка «студия худ. Нивельштейна(?)» и цифра 2; фамилия читается неуверенно Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-246",
@@ -4327,7 +4348,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 644 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-247",
@@ -4346,7 +4367,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 1476 по оборотной надписи. уточнение «Новгородский» прочитано при увеличении; размер 40×55,5 не сходится с пропорцией, первая цифра сомнительна Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-248",
@@ -4365,7 +4386,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-249",
@@ -4384,7 +4405,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "needs_review",
     provenance: "Собрание семьи художника",
     internalNotes: "только название карандашом Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-250",
@@ -4403,7 +4424,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-251",
@@ -4422,7 +4443,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-252",
@@ -4441,7 +4462,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 207 по оборотной надписи. приписка «Арктика» Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-253",
@@ -4460,7 +4481,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "два названия разными чернилами Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-254",
@@ -4479,7 +4500,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 1076 по оборотной надписи. самая маленькая вещь в массиве Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-255",
@@ -4498,7 +4519,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "вторая сторона размера не читается Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-256",
@@ -4517,7 +4538,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "needs_review",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 156 по оборотной надписи. год читается неуверенно Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-257",
@@ -4536,7 +4557,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "размер подтвердился после усиления Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-258",
@@ -4555,7 +4576,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 634 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-259",
@@ -4574,7 +4595,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-260",
@@ -4593,7 +4614,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 951 по оборотной надписи. Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-261",
@@ -4612,7 +4633,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-262",
@@ -4631,7 +4652,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "needs_review",
     provenance: "Собрание семьи художника",
     internalNotes: "названия нет, только техника и размер Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-263",
@@ -4650,7 +4671,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "needs_review",
     provenance: "Собрание семьи художника",
     internalNotes: "название стёрто, читается только «…ный этюд» Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-264",
@@ -4669,7 +4690,7 @@ export const archiveWorks: Work[] = [
     attributionStatus: "needs_review",
     provenance: "Собрание семьи художника",
     internalNotes: "чистый серый грунтованный лист; надпись «Обрывистый берег» на соседнем картоне относится к другой работе Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-265",
@@ -4688,6 +4709,6 @@ export const archiveWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "название не читается Описание к произведению ещё не написано.",
-    isPublic: false,
+    isPublic: true,
   },
 ];

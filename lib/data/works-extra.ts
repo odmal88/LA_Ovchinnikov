@@ -54,7 +54,7 @@ export const extraWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     internalNotes: "Инв. № 816 по оборотной надписи. Надпись прочитана после усиления контраста снимка.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-021",
@@ -79,7 +79,7 @@ export const extraWorks: Work[] = [
     attributionStatus: "needs_review",
     provenance: "Собрание семьи художника",
     internalNotes: "Год на обороте читается только как «195…»; название прочитано после усиления контраста снимка.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-022",
@@ -105,7 +105,7 @@ export const extraWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     signature: "Подпись автора в правом нижнем углу",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-023",
@@ -131,7 +131,7 @@ export const extraWorks: Work[] = [
     provenance: "Собрание семьи художника",
     signature: "Подпись автора в правом нижнем углу",
     internalNotes: "На обороте есть выцветшая надпись «В горах», но она не соответствует изображению: на работе железнодорожный тупик. Название к работе не отнесено, требуется сверка по архиву.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-024",
@@ -156,7 +156,7 @@ export const extraWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     signature: "Подпись и дата автора в правом нижнем углу",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-025",
@@ -181,7 +181,7 @@ export const extraWorks: Work[] = [
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
     signature: "Подпись и дата автора в правом нижнем углу",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-026",
@@ -205,7 +205,7 @@ export const extraWorks: Work[] = [
     inscriptions: ["Оборот: «24 × 20 / п-т Старика / Овчинников Лев / 1953 г.»."],
     attributionStatus: "confirmed",
     provenance: "Собрание семьи художника",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-027",
@@ -231,7 +231,7 @@ export const extraWorks: Work[] = [
     provenance: "Собрание семьи художника",
     signature: "Подпись и дата автора в левом нижнем углу",
     internalNotes: "Инв. № 512 по оборотной надписи. Внизу оборота более поздняя архивная приписка «С.-Петербург».",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-028",
@@ -261,7 +261,7 @@ export const extraWorks: Work[] = [
     provenance: "Собрание семьи художника",
     signature: "Подпись и дата автора в правом нижнем углу",
     internalNotes: "Инв. № 224 по оборотной надписи. Размер на обороте не указан. Сведения о музее приведены по авторской надписи и требуют сверки по источникам.",
-    isPublic: false,
+    isPublic: true,
   },
   {
     id: "LO-029",
@@ -287,6 +287,6 @@ export const extraWorks: Work[] = [
     provenance: "Собрание семьи художника",
     signature: "Подпись и дата автора в правом нижнем углу",
     internalNotes: "Инв. № 511 по оборотной надписи. Внизу оборота более поздняя архивная приписка «С.-Петербург»; место написания требует сверки.",
-    isPublic: false,
+    isPublic: true,
   },
 ];
