@@ -4,6 +4,7 @@ import { Header, Footer } from "@/components/layout";
 import { WorkDetail } from "@/components/works/work-detail";
 import { getPublicWorks } from "@/lib/data/works";
 import { extraWorks } from "@/lib/data/works-extra";
+import { archiveWorks } from "@/lib/data/works-archive";
 import { siteConfig } from "@/lib/data/site-config";
 
 interface WorkPageProps {
@@ -11,7 +12,8 @@ interface WorkPageProps {
 }
 
 function getAllPublicWorks() {
-  return [...getPublicWorks(), ...extraWorks.filter((work) => work.isPublic)];
+  return [...getPublicWorks(), ...extraWorks.filter((work) => work.isPublic),
+    ...archiveWorks.filter((work) => work.isPublic)];
 }
 
 function findWorkBySlug(slug: string) {
