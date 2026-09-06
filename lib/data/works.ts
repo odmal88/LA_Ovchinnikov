@@ -106,27 +106,6 @@ export const works: Work[] = [
     isPublic: true,
   },
   {
-    id: "LO-005",
-    slug: "peizazhny-etud-bez-nazvaniya",
-    artist,
-    title: "Без названия. Пейзажный этюд",
-    period: "unknown",
-    technique: "oil",
-    material: "Основа уточняется",
-    dimensions: "Размер уточняется",
-    genre: "landscape",
-    themes: ["этюд", "пейзаж", "природа"],
-    descriptionShort:
-      "Небольшой камерный пейзажный этюд в деревянной раме, построенный на зелёно-голубой гамме и мягких переходах света.",
-    descriptionFull:
-      "Точный мотив требует уточнения: возможно, это фрагмент природной среды с водой, отражениями, листвой или береговой линией. До съёмки оборота и подписи работу следует вести в каталоге осторожно, без окончательного закрепления даты.",
-    imageFull: "/works/lev/full/lo-005-peizazhny-etud-bez-nazvaniya.webp",
-    imageThumb: "/works/lev/thumbs/lo-005-peizazhny-etud-bez-nazvaniya.webp",
-    attributionStatus: "needs_review",
-    provenance: "Собрание семьи художника",
-    isPublic: true,
-  },
-  {
     id: "LO-006",
     slug: "osen-v-gorah",
     artist,
