@@ -43,17 +43,36 @@ jobs:
           python3 -m pip install --upgrade pip
           python3 -m pip install awscli
 
-      - name: Deploy to Yandex Object Storage
+      # Загрузка идёт двумя проходами, чтобы у файлов сохранялся правильный
+      # Content-Type. Прежний вариант выставлял долгий кэш отдельным шагом
+      # `s3 cp --metadata-directive REPLACE`, а этот ключ стирает всю метаданную,
+      # включая Content-Type: css и js начинали отдаваться как text/plain,
+      # и браузер переставал применять таблицу стилей. При загрузке из локальной
+      # папки aws cli определяет тип по расширению сам.
+      - name: Deploy site (short cache)
         run: |
           aws --endpoint-url="$YC_ENDPOINT" \
             s3 sync out/ "s3://$YC_BUCKET/" \
             --delete \
+            --exclude "_next/*" \
             --cache-control "public, max-age=300"
 
-      - name: Set long cache for Next static assets
+      - name: Deploy Next static assets (long cache)
         run: |
           aws --endpoint-url="$YC_ENDPOINT" \
-            s3 cp "s3://$YC_BUCKET/_next/" "s3://$YC_BUCKET/_next/" \
-            --recursive \
-            --metadata-directive REPLACE \
+            s3 sync out/_next/ "s3://$YC_BUCKET/_next/" \
+            --delete \
             --cache-control "public, max-age=31536000, immutable"
+
+      - name: Verify content types
+        run: |
+          set -e
+          key=$(cd out && find _next -name '*.css' | head -1)
+          ct=$(aws --endpoint-url="$YC_ENDPOINT" s3api head-object \
+                 --bucket "$YC_BUCKET" --key "$key" \
+                 --query ContentType --output text)
+          echo "$key -> $ct"
+          case "$ct" in
+            text/css*) echo "Content-Type в порядке" ;;
+            *) echo "ОШИБКА: ожидался text/css, получен $ct"; exit 1 ;;
+          esac
